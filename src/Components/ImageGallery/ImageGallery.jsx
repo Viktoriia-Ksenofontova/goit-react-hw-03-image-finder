@@ -4,7 +4,10 @@ import styles from './ImageGallery.module.css';
 
 class ImageGallery extends Component {
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.images.length !== this.props.images.length) {
+    if (
+      prevProps.images.length !== this.props.images.length &&
+      prevProps.images.length !== 0
+    ) {
       window.scrollTo({
         top: document.documentElement.scrollHeight,
         behavior: 'smooth',
@@ -18,7 +21,7 @@ class ImageGallery extends Component {
         {this.props.images.map(({ id, webformatURL, tags, largeImageURL }) => (
           <ImageGalleryItem
             key={id}
-            URL={webformatURL}
+            url={webformatURL}
             tags={tags}
             largeImageURL={largeImageURL}
           />

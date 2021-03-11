@@ -1,15 +1,21 @@
+import PropTypes from 'prop-types';
 import styles from './ImageGalleryItem.module.css';
 
-const ImageGalleryItem = ({ URL, tags, id, largeImageURL }) => (
+const ImageGalleryItem = ({ url, tags, largeImageURL }) => (
   <li className={styles.GalleryItem}>
     <img
-      id={id}
-      src={URL}
+      src={url}
       alt={tags}
       className={styles.GalleryItemImage}
       data-source={largeImageURL}
     />
   </li>
 );
+
+ImageGalleryItem.propTypes = {
+  url: PropTypes.string.isRequired,
+  tags: PropTypes.string.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+};
 
 export default ImageGalleryItem;
